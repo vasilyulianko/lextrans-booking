@@ -2,10 +2,21 @@ package com.lextrans.service.appointment.model;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by vasilyulianko on 26/05/2016.
  */
-public @Data class Appointment {
+@Data
+@Entity
+public class Appointment {
 
-    private String address;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
+
 }
