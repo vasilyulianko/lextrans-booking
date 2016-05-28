@@ -5,7 +5,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,6 +63,10 @@ public class Appointment implements Serializable {
     private List<AppointmentPerson> persons;
 
     private String comments;
+
+    private LocalDateTime createdDateTime;
+
+    private LocalDateTime modifiedDateTime;
 
     public List<AppointmentPerson> attorneys() {
         return persons.stream().filter(p -> p.getRole().equals(PersonRole.ATTORNEY)).collect(Collectors.toList());

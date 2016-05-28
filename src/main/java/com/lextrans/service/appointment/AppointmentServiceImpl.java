@@ -7,6 +7,9 @@ import com.lextrans.service.model.AppointmentCity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 /**
  * Created by vasilyulianko on 26/05/2016.
  */
@@ -25,6 +28,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         appointment.setCity(city);
 
+        LocalDateTime now = LocalDateTime.now();
+        appointment.setCreatedDateTime(now);
+        appointment.setModifiedDateTime(now);
         return appointmentRepository.save(appointment);
     }
 
