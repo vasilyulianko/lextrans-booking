@@ -57,6 +57,8 @@ dependencies {
 
 	runtime('postgresql:postgresql:9.1-901-1.jdbc4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.jboss.resteasy:resteasy-client:3.0.17.Final')
+	testCompile('org.jboss.resteasy:resteasy-jackson-provider:3.0.17.Final')
 	testRuntime('org.hsqldb:hsqldb')
 }
 

@@ -1,7 +1,7 @@
 package com.lextrans.service.appointment;
 
 import com.lextrans.service.appointment.dao.AppointmentRepository;
-import com.lextrans.service.appointment.model.Appointment;
+import com.lextrans.service.model.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
         Appointment appointment1 = new Appointment();
-        appointment1.setName("Vasily");
+        appointment1.setTimePreference("Vasily");
 
         Appointment saved = appointmentRepository.save(appointment);
 

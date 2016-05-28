@@ -1,6 +1,6 @@
 package com.lextrans.service.appointment;
 
-import com.lextrans.service.appointment.model.Appointment;
+import com.lextrans.service.model.Appointment;
 
 /**
  * Created by vasilyulianko on 26/05/2016.

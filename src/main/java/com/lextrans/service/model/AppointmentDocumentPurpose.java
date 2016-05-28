@@ -1,4 +1,4 @@
-package com.lextrans.service.appointment.model;
+package com.lextrans.service.model;
 
 import lombok.Data;
 
@@ -9,15 +9,17 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by vasilyulianko on 26/05/2016.
+ * Created by vasily on 28/05/2016.
  */
 @Data
 @Entity
-public class Appointment implements Serializable {
+public class AppointmentDocumentPurpose implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
 
 }

@@ -1,7 +1,6 @@
 package com.lextrans.service.appointment.dao;
 
-import com.lextrans.service.appointment.model.Appointment;
-import org.springframework.data.repository.CrudRepository;
+import com.lextrans.service.model.Appointment;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -2,15 +2,13 @@ package com.lextrans.controller.appointment;
 
 import com.lextrans.service.appointment.AppointmentService;
 import com.lextrans.service.appointment.dao.AppointmentRepository;
-import com.lextrans.service.appointment.model.Appointment;
+import com.lextrans.service.model.Appointment;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -20,19 +18,19 @@ import java.util.stream.StreamSupport;
 @Controller
 @RequestMapping("/control/appointment")
 public class AppointmentController {
+    private Log log = LogFactory.getLog(AppointmentController.class);
 
     @Autowired
     private AppointmentService appointmentService;
     @Autowired
     private AppointmentRepository appointmentRepository;
 
-    @RequestMapping("/{name}")
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
-    String createAppointment(@PathVariable(value="name") final String name) {
-        Appointment appointment = new Appointment();
-        appointment.setName(name);
+    Appointment createAppointment(@RequestBody final Appointment appointment) {
+        log.info("Appointment created:" + appointment);
         Appointment appointment1 = appointmentService.createAppointment(appointment);
-        return appointment.toString();
+        return appointment;
     }
 
     @RequestMapping("/")
