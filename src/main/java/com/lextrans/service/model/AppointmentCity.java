@@ -23,9 +23,4 @@ public class AppointmentCity implements Serializable {
     @NotBlank
     private String name;
 
-    @NotBlank
-    private String state;
-
-    @NotBlank
-    private String country;
 }

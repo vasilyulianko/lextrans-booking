@@ -26,6 +26,9 @@ public class Appointment implements Serializable {
 
     private String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private AppointmentCity city;
+
     private LocalDateTime dateTime;
 
     private String timePreference;
@@ -47,7 +50,6 @@ public class Appointment implements Serializable {
 
     @NotBlank
     private String contactPostCode;
-
 
     @NotBlank
     private String contactMobile;

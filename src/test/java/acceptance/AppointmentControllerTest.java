@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lextrans.LextransApplication;
 import com.lextrans.service.model.Appointment;
+import com.lextrans.tests.TestHelper;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,23 +19,16 @@ import javax.ws.rs.core.Response;
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@SpringApplicationConfiguration(classes = LextransApplication.class)
 //@WebAppConfiguration
-public class AppointmentControllerTest {
+public class AppointmentControllerTest extends TestHelper {
+
+	private static final String SERVER_URL = "http://localhost:8090";
 
 	@Test
 	public void createAppointment() throws JsonProcessingException {
-		Appointment appointment = new Appointment();
 
-
-		appointment.setName("Name");
-		appointment.setContactFullName("Vasily Ulianko");
-		appointment.setContactAddressLine1("Address 1");
-		appointment.setContactPostCode("FR345");
-		appointment.setContactMobile("23467844");
-		appointment.setContactEmail("email@gmail.com");
-
-		Entity<Appointment> entity = Entity.entity(appointment, MediaType.APPLICATION_JSON_TYPE);
+		Entity<Appointment> entity = Entity.entity(defaultAppointment(), MediaType.APPLICATION_JSON_TYPE);
 		Response response = new ResteasyClientBuilder().build()
-				.target("http://localhost:8090/control/appointment/").request(MediaType.APPLICATION_JSON_TYPE).post(entity);
+				.target(SERVER_URL + "/control/appointment/").request(MediaType.APPLICATION_JSON_TYPE).post(entity);
 
 		String output = response.readEntity(String.class);
 
