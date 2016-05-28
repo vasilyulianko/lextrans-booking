@@ -25,7 +25,7 @@ public class TestHelper {
 
     public AppointmentCity defaultAppointmentCity() {
         AppointmentCity appointmentCity = new AppointmentCity();
-        appointmentCity.setName("London");
+        appointmentCity.setId(1L);
         return appointmentCity;
     }
 }
