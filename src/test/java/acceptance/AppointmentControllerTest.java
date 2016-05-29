@@ -22,13 +22,14 @@ import javax.ws.rs.core.Response;
 public class AppointmentControllerTest extends TestHelper {
 
 	private static final String SERVER_URL = "http://localhost:8090";
+    private static final MediaType JSON_TYPE = MediaType.APPLICATION_JSON_TYPE;
 
-	@Test
+    @Test
 	public void createAppointment() throws JsonProcessingException {
 
-		Entity<Appointment> entity = Entity.entity(defaultAppointment(), MediaType.APPLICATION_JSON_TYPE);
+		Entity<Appointment> entity = Entity.entity(defaultAppointment(), JSON_TYPE);
 		Response response = new ResteasyClientBuilder().build()
-				.target(SERVER_URL + "/control/appointment/").request(MediaType.APPLICATION_JSON_TYPE).post(entity);
+				.target(SERVER_URL + "/control/appointment/").request(JSON_TYPE).post(entity);
 
 		String output = response.readEntity(String.class);
 
