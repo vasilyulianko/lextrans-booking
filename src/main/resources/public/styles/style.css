@@ -1,17 +1,17 @@
 /* style.css */
 /* BASIC STYLINGS
 ============================================================================= */
-body                            { padding-top:20px; }
+body                            { padding-top:20px; color: #007eb6;}
 
 /* form styling */
-#form-container                { background:#2f2f2f; margin-bottom:20px;
+#form-container                { background:#E5F2F8; margin-bottom:20px;
     border-radius:5px; }
 #form-container .page-header   { background:#151515; margin:0; padding:30px;
     border-top-left-radius:5px; border-top-right-radius:5px; }
 
 /* numbered buttons */
 #status-buttons                 {  }
-#status-buttons a               { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+#status-buttons a               { color:#007eb6; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
 #status-buttons a:hover         { text-decoration:none; }
 
 /* we will style the span as the circled number */
