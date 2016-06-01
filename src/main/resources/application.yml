@@ -35,8 +35,6 @@ spring:
           ddl-auto: create-drop
     datasource:
       url: ${JDBC_DATABASE_URL}
-      username: devdb
-      password: devdb
       driver-class-name: org.postgresql.Driver
       max-active: 10
       initial-size: 5
