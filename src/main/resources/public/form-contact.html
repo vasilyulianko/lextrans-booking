@@ -1,17 +1,61 @@
+<label>Where would you like to attend a notary?</label>
+
 <div class="form-group">
-    <label for="name">Name</label>
+    <label for="city">Select City:</label>
+    <select class="form-control" name="city" ng-model="formData.city">
+        <option value="1">London</option>
+        <option value="2">Dublin</option>
+        <option value="3">Three</option>
+        <option value="3">Four</option>
+        <option value="4">Five</option>
+    </select>
+</div>
+<label>Where would you like to attend a notary?</label>
+<label>Select date:</label>
+
+<div class="form-group">
+    <label for="time">Select time:</label>
+    <select class="form-control" name="time" ng-model="formData.time">
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="preferences">If specified term is not available, what are your alternative preferences?</label>
+    <textarea class="form-control" rows="2" name="preferences" ng-model="formData.preferences"></textarea>
+</div>
+<label>Your contact details:</label>
+
+<div class="form-group">
+    <label for="name">Name and Surname</label>
     <input type="text" class="form-control" name="name" ng-model="formData.name">
 </div>
 
 <div class="form-group">
+    <label for="addressLine1">Address in UK:</label>
+    <input type="text" class="form-control" name="addressLine1" ng-model="formData.addressLine1">
+</div>
+
+<div class="form-group">
+    <label for="postcode">Postcode:</label>
+    <input type="text" class="form-control" name="postcode" ng-model="formData.postcode">
+</div>
+
+<div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" class="form-control" name="mobile" ng-model="formData.mobile">
+</div>
+
+<div class="form-group">
     <label for="email">Email</label>
-    <input type="text" class="form-control" name="email" ng-model="formData.email">
+    <input type="email" class="form-control" name="email" ng-model="formData.email">
 </div>
 
 <div class="form-group row">
     <div class="col-xs-6 col-xs-offset-3">
         <a ui-sref="form.payment" class="btn btn-block btn-info">
-            Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+            Save & Continue <span class="glyphicon glyphicon-circle-arrow-right"></span>
         </a>
     </div>
 </div>
