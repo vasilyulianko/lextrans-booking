@@ -6,6 +6,7 @@ import com.lextrans.LextransApplication;
 import com.lextrans.service.model.Appointment;
 import com.lextrans.tests.TestHelper;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -24,6 +25,7 @@ public class AppointmentControllerTest extends TestHelper {
 	private static final String SERVER_URL = "http://localhost:8090";
     private static final MediaType JSON_TYPE = MediaType.APPLICATION_JSON_TYPE;
 
+    @Ignore
     @Test
 	public void createAppointment() throws JsonProcessingException {
 

@@ -16,7 +16,7 @@ apply plugin: 'java'
 apply plugin: 'spring-boot'
 
 jar {
-	baseName = 'lextrans'
+	baseName = 'lextrans-booking'
 	version = '0.0.1-SNAPSHOT'
 }
 
