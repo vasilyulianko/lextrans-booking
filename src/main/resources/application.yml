@@ -34,10 +34,15 @@ spring:
         hibernate:
           ddl-auto: create-drop
     datasource:
-      url: jdbc:postgresql://localhost:5432/lextrans
+      url: ${JDBC_DATABASE_URL}
       username: devdb
       password: devdb
       driver-class-name: org.postgresql.Driver
+      max-active: 10
+      initial-size: 5
+      max-idle: 5
+      min-idle: 2
+      remove-abandoned: true
 
 security:
     basic:
@@ -47,4 +52,4 @@ security:
 #    contexts: dev
 
 server:
-    port: 8090
+    port: 5000

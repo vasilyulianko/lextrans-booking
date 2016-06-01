@@ -58,7 +58,7 @@ dependencies {
 	compile("org.lightadmin:lightadmin:1.2.0.RC1")
 	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
 
-	runtime('postgresql:postgresql:9.1-901-1.jdbc4')
+	runtime('postgresql:postgresql:9.4-1201-jdbc4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.jboss.resteasy:resteasy-client:3.0.17.Final')
 	testCompile('org.jboss.resteasy:resteasy-jackson-provider:3.0.17.Final')
