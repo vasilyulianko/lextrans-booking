@@ -1,3 +1,4 @@
+
 buildscript {
 	ext {
 		springBootVersion = '1.2.8.RELEASE'
@@ -7,10 +8,13 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-	}
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 
 }
+/*plugins {
+    id 'com.craigburke.bower-installer' version '2.5.1'
+}*/
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
@@ -21,7 +25,8 @@ jar {
 }
 
 bootRun {
-	jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"]
+    environment = ['JDBC_DATABASE_URL' : 'jdbc:postgresql://localhost:5432/lextrans?user=devdb&password=devdb']
+    jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"]
 }
 
 sourceCompatibility = 1.8
@@ -33,7 +38,8 @@ repositories {
 }
 
 task stage {
-	dependsOn build
+    //dependsOn bowerInstall
+    dependsOn build
 }
 
 dependencies {
@@ -65,4 +71,40 @@ dependencies {
 	testRuntime('org.hsqldb:hsqldb')
 }
 
+/*
 
+//Frontend application
+bower {
+    installBase = 'src/main/resources/public/assets/bower'
+    'angular'('1.5.2')
+
+    'bootstrap'('3.3.6') {
+        source 'dist/css*/
+/*.min.css' >> 'styles/'
+        source 'dist/fonts*/
+/**' >> 'fonts/'
+
+        excludes 'jquery' // <5>
+    }
+*/
+/*
+    'angular'('1.5.2') {
+        source 'angular.js'
+    }
+
+    'ui-router'('0.2.x') // <4>
+
+    'bootstrap'('3.3.6') {
+        source 'dist/css*//*
+*/
+/*.min.css' >> 'styles/'
+        source 'dist/fonts*//*
+*/
+/**' >> 'fonts/'
+
+        excludes 'jquery'
+    }
+
+    'animate.css'('https://github.com/daneden/animate.css.git') // <6>*//*
+
+}*/
