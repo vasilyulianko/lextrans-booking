@@ -46,7 +46,7 @@ angular.module('lextransBookingApp', ['ngAnimate', 'ui.router'])
     .controller('appointmentFormController', function($scope) {
 
         // we will store all of our form data in this object
-        $scope.appointmentForm = {};
+        $scope.appointment = {};
 
         // function to process the form
         $scope.processForm = function() {
