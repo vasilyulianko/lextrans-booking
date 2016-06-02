@@ -12,8 +12,7 @@ angular.module('lextransBookingApp', ['ngAnimate', 'ui.router'])
         // route to show our basic form (/form)
             .state('appointment', {
                 url: '/appointment',
-                templateUrl: 'form.html',
-                controller: 'appointmentFormController'
+                templateUrl: 'form.html'
             })
 
             // nested states
@@ -43,10 +42,19 @@ angular.module('lextransBookingApp', ['ngAnimate', 'ui.router'])
 
     // our controller for the form
     // =============================================================================
-    .controller('appointmentFormController', function($scope) {
+    .controller('appointmentFormController', function($scope, $state) {
 
         // we will store all of our form data in this object
         $scope.appointment = {};
+
+
+        $scope.proceed = function() {
+            if ($scope.appointmentForm.$valid) {
+                $state.go('appointment.payment')
+            } else {
+                alert("There are invalid fields");
+            }
+        };
 
         // function to process the form
         $scope.processForm = function() {
