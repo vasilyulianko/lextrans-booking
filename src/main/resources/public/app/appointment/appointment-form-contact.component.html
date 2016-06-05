@@ -2,23 +2,20 @@
 
 <div class="form-group">
     <label for="city">Select City:</label>
-    <select class="form-control" name="city" ng-model="appointment.city">
-        <option value="1">London</option>
-        <option value="2">Dublin</option>
-        <option value="3">Three</option>
-        <option value="3">Four</option>
-        <option value="4">Five</option>
+    <select class="form-control" name="city" >
+        <option *ngFor='#city of cities' value="{{city.id}}">{{city.name}}</option>
     </select>
 </div>
 <label>Where would you like to attend a notary?</label>
 <label>Select date:</label>
-
+<div class="form-group">
+    <label for="time">Select date:</label>
+    DATE
+</div>
 <div class="form-group">
     <label for="time">Select time:</label>
-    <select class="form-control" name="time" ng-model="appointment.time">
-        <option value="15:30">15:30</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
+    <select class="form-control" name="time">
+        <option *ngFor='#time of times' value="{{time}}">{{time}}</option>
     </select>
 </div>
 <div class="form-group">
