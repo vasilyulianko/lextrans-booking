@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+        <div id="form-container">
+
+            <div class="page-header">
+                <h2>Book an appointment</h2>
+
+                <div class="process-panel">
+                    <h3>Appointment booking process</h3>
+                    <nav>
+                        <ol>
+                            <li class="first-child active"><span>Contacts</span></li>
+                            <li><span>Details</span></li>
+                            <li><span>Review</span></li>
+                            <li><span>Payment</span></li>
+                            <li class="last-child"><span>Confirmation</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- use ng-submit to catch the form submission and use our Angular function -->
+            <form name="appointmentForm" ng-submit="processForm()" novalidate>
+
+                <!-- our nested state views will be injected here -->
+                <appointment-form-contact></appointment-form-contact>
+            </form>
+
+        </div>
+
+        <!-- show our formData as it is being typed -->
+    <pre>
+        {{ appointment }}
+    </pre>
+
+
+    </div>
+</div>
