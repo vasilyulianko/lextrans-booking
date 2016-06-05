@@ -21,10 +21,10 @@
             </div>
 
             <!-- use ng-submit to catch the form submission and use our Angular function -->
-            <form name="appointmentForm" ng-submit="processForm()" novalidate>
+            <form name="appointmentForm" novalidate>
 
                 <!-- our nested state views will be injected here -->
-                <appointment-form-contact></appointment-form-contact>
+                <appointment-form-contact appointment="{{appointment}}"></appointment-form-contact>
             </form>
 
         </div>

@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {AppointmentFormComponent} from "./appointment/appointment-form.component";
+import {Component} from '@angular/core';
+import {AppointmentFormComponent} from "./appointment/component/appointment-form.component";
 
 @Component({
     selector: 'lb-app',
