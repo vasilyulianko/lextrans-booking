@@ -6,4 +6,6 @@ import {AppointmentFormComponent} from "./appointment/component/appointment-form
     template: '<appointment-form></appointment-form>',
     directives: [AppointmentFormComponent]
 })
-export class AppComponent { }
+export class AppComponent {
+    
+}
