@@ -11,11 +11,10 @@ import {AppointmentService} from "../service/appointment.service";
 })
 export class AppointmentFormComponent {
 
-    appointment: Appointment = new Appointment();
 
     constructor(private _appointmentService: AppointmentService) {
 
-        
+
     }
 
 }

@@ -10,7 +10,7 @@ import {AppointmentService} from "../service/appointment.service";
 })
 export class AppointmentFormContactComponent implements OnInit {
 
-    @Input() appointment:Appointment;
+    appointment: Appointment = new Appointment(2, "", 2);
 
     constructor(private _appointmentService:AppointmentService) {
 
@@ -36,5 +36,9 @@ export class AppointmentFormContactComponent implements OnInit {
 
     ngOnInit():void {
         this._appointmentService.getCities();
+    }
+
+    get diagnostic(): string {
+       return JSON.stringify(this.appointment);
     }
 }

@@ -3,7 +3,7 @@
 <div class="form-group">
     <label for="city">Select City:</label>
     <select class="form-control" name="city" [(ngModel)]="appointment.cityId">
-        <option *ngFor='let city of cities' value="{{city.id}}">{{city.name}}</option>
+        <option *ngFor='let city of cities' [value]="city.id">{{city.name}}</option>
     </select>
 </div>
 <label>Where would you like to attend a notary?</label>
@@ -15,7 +15,7 @@
 <div class="form-group">
     <label for="time">Select time:</label>
     <select class="form-control" name="time" [(ngModel)]="appointment.timeId">
-        <option *ngFor='let time of times' value="{{time.id}}">{{time.displayValue}}</option>
+        <option *ngFor='let time of times' [value]="time.id">{{time.displayValue}}</option>
     </select>
 </div>
 <div class="form-group">
@@ -56,3 +56,6 @@
         </a>
     </div>
 </div>
+<pre>
+{{diagnostic}}
+</pre>

@@ -14,6 +14,7 @@ var appointment_service_1 = require("../service/appointment.service");
 var AppointmentFormContactComponent = (function () {
     function AppointmentFormContactComponent(_appointmentService) {
         this._appointmentService = _appointmentService;
+        this.appointment = new appointment_1.Appointment(2, "", 2);
         this.cities = [{
                 "id": 1,
                 "name": "London"
@@ -32,10 +33,13 @@ var AppointmentFormContactComponent = (function () {
     AppointmentFormContactComponent.prototype.ngOnInit = function () {
         this._appointmentService.getCities();
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', appointment_1.Appointment)
-    ], AppointmentFormContactComponent.prototype, "appointment", void 0);
+    Object.defineProperty(AppointmentFormContactComponent.prototype, "diagnostic", {
+        get: function () {
+            return JSON.stringify(this.appointment);
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppointmentFormContactComponent = __decorate([
         core_1.Component({
             selector: 'appointment-form-contact',

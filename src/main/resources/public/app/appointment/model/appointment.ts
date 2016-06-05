@@ -1,25 +1,13 @@
-
-export interface IAppointment {
-    cityId: number;
-    date: string;
-    timeId: number;
-    preferences: string;
-    name: string;
-    addressLine1: string;
-    postcode: string;
-    mobile: string;
-    email: string;
-}
-
-export class Appointment implements IAppointment{
-    cityId:number;
-    date:string;
-    timeId:number;
-    preferences:string;
-    name:string;
-    addressLine1:string;
-    postcode:string;
-    mobile:string;
-    email:string;
-    
+export class Appointment {
+    constructor(
+        public cityId?:number,
+        public date?:string,
+        public timeId?:number,
+        public preferences?:string,
+        public name?:string,
+        public addressLine1?:string,
+        public postcode?:string,
+        public mobile?:string,
+        public email?:string
+    ){ }
 }
