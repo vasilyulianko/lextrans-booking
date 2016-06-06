@@ -9,37 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var appointment_1 = require("../model/appointment");
 var appointment_service_1 = require("../service/appointment.service");
 var AppointmentFormContactComponent = (function () {
     function AppointmentFormContactComponent(_appointmentService) {
         this._appointmentService = _appointmentService;
-        this.appointment = new appointment_1.Appointment(2, "", 2);
-        this.cities = [{
-                "id": 1,
-                "name": "London"
-            }, {
-                "id": 2,
-                "name": "Dublin"
-            }];
-        this.times = [
-            { "id": 1, "displayValue": "15:00" },
-            { "id": 2, "displayValue": "16:00" },
-            { "id": 3, "displayValue": "17:00" }];
     }
     AppointmentFormContactComponent.prototype.proceed = function () {
-        console.log(JSON.stringify(this.appointment));
+        console.log(JSON.stringify(this._appointmentService.appointment));
     };
     AppointmentFormContactComponent.prototype.ngOnInit = function () {
-        this._appointmentService.getCities();
+        this.appointment = this._appointmentService.appointment;
+        this.cities = this._appointmentService.getCities();
+        this.times = this._appointmentService.getTimes();
     };
-    Object.defineProperty(AppointmentFormContactComponent.prototype, "diagnostic", {
-        get: function () {
-            return JSON.stringify(this.appointment);
-        },
-        enumerable: true,
-        configurable: true
-    });
     AppointmentFormContactComponent = __decorate([
         core_1.Component({
             selector: 'appointment-form-contact',

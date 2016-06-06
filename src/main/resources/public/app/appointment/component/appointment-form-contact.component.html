@@ -26,7 +26,7 @@
     </div>
     <label>Your contact details:</label>
 
-    <div class="form-group {{!(name.valid || name.pristine)? 'has-error' : ''}}">
+    <div class="form-group" [class.has-error]="!name.valid && !name.pristine">
         <label class="control-label">Name and Surname:</label>
         <input type="text" class="form-control" [(ngModel)]="appointment.name" ngControl="name" #name="ngForm" required
                placeholder="Name and Surname">
@@ -62,8 +62,6 @@
             </a>
         </div>
     </div>
-<pre>
-{{diagnostic}}
-</pre>
+
 
 </form>

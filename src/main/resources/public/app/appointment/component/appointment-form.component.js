@@ -15,6 +15,13 @@ var AppointmentFormComponent = (function () {
     function AppointmentFormComponent(_appointmentService) {
         this._appointmentService = _appointmentService;
     }
+    Object.defineProperty(AppointmentFormComponent.prototype, "diagnostic", {
+        get: function () {
+            return JSON.stringify(this._appointmentService.appointment);
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppointmentFormComponent = __decorate([
         core_1.Component({
             selector: 'appointment-form',
