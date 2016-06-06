@@ -9,7 +9,7 @@ import {AppointmentService} from "../service/appointment.service";
     templateUrl: 'app/appointment/component/appointment-form-contact.component.html'
 })
 export class AppointmentFormContactComponent implements OnInit {
-
+    errorMessage;
     appointment: Appointment;
     cities:City[];
     times:any[];
@@ -24,7 +24,13 @@ export class AppointmentFormContactComponent implements OnInit {
 
     ngOnInit():void {
         this.appointment = this._appointmentService.appointment;
-        this.cities = this._appointmentService.getCities();
+        this._appointmentService.getCities()
+            .subscribe(
+                cities => this.cities = cities,
+                error => this.errorMessage = <any> error
+            );
+
+
         this.times = this._appointmentService.getTimes();
     }
 

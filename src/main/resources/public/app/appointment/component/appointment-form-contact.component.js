@@ -18,8 +18,10 @@ var AppointmentFormContactComponent = (function () {
         console.log(JSON.stringify(this._appointmentService.appointment));
     };
     AppointmentFormContactComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.appointment = this._appointmentService.appointment;
-        this.cities = this._appointmentService.getCities();
+        this._appointmentService.getCities()
+            .subscribe(function (cities) { return _this.cities = cities; }, function (error) { return _this.errorMessage = error; });
         this.times = this._appointmentService.getTimes();
     };
     AppointmentFormContactComponent = __decorate([

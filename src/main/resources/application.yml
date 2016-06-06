@@ -25,14 +25,8 @@ spring:
         cache-seconds: 1
     thymeleaf:
         cache: false
-    freemarker:
-        check-template-location: false
-    velocity:
-      check-template-location: false
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
-        hibernate:
-          ddl-auto: create-drop
     datasource:
       url: ${JDBC_DATABASE_URL}
       driver-class-name: org.postgresql.Driver

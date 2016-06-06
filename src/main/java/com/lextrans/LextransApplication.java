@@ -1,27 +1,16 @@
 package com.lextrans;
 
-import com.lextrans.service.model.Appointment;
-import org.apache.catalina.Container;
-import org.apache.catalina.Context;
-import org.apache.catalina.Wrapper;
-import org.lightadmin.api.config.LightAdmin;
-import org.lightadmin.core.config.LightAdminWebApplicationInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.ServletContextInitializer;
-import org.springframework.boot.context.embedded.tomcat.TomcatContextCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
@@ -34,8 +23,8 @@ public class LextransApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(LextransApplication.class, args);
 	}
-
-	/* Used for running in "embedded" mode */
+/*
+	*//* Used for running in "embedded" mode *//*
 	@Bean
 	public ServletContextInitializer servletContextInitializer() {
 		return new ServletContextInitializer() {
@@ -52,7 +41,7 @@ public class LextransApplication extends SpringBootServletInitializer {
 		};
 	}
 
-	/* https://github.com/spring-projects/spring-boot/issues/2825#issuecomment-93479758 */
+	*//* https://github.com/spring-projects/spring-boot/issues/2825#issuecomment-93479758 *//*
 	@Bean
 	public EmbeddedServletContainerCustomizer servletContainerCustomizer() {
 		return new EmbeddedServletContainerCustomizer() {
@@ -80,8 +69,17 @@ public class LextransApplication extends SpringBootServletInitializer {
 			}
 
 		};
-	}
+	}*/
 
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/control/**").allowedOrigins("http://localhost:3000");
+			}
+		};
+	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
