@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core'
+
 import {ICity} from "../model/city";
 import {Appointment} from "../model/appointment";
 import {AppointmentService} from "../service/appointment.service";
