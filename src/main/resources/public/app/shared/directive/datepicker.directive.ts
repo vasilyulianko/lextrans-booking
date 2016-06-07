@@ -21,6 +21,7 @@ export class DatepickerDirective implements OnInit {
             altField: this.elementRef.nativeElement,
             altFormat: "dd MM yy",
             dateFormat: "dd-mm-yy",
+            firstDay: 1,
             onSelect: (dateText) => {
                 this.change.emit(dateText);
             }
