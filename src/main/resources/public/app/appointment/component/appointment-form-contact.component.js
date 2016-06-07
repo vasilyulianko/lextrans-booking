@@ -25,8 +25,8 @@ var AppointmentFormContactComponent = (function () {
             .subscribe(function (cities) { return _this.cities = cities; }, function (error) { return _this.errorMessage = error; });
         this.times = this._appointmentService.getTimes();
     };
-    AppointmentFormContactComponent.prototype.checkDates = function (e) {
-        console.log("Please, catch the change event ): " + e);
+    AppointmentFormContactComponent.prototype.chooseDate = function (e) {
+        this.appointment.date = e;
     };
     AppointmentFormContactComponent = __decorate([
         core_1.Component({

@@ -18,6 +18,9 @@ export class DatepickerDirective implements OnInit {
 
     ngOnInit() {
         jQuery(this.elementRef.nativeElement).datepicker({
+            altField: this.elementRef.nativeElement,
+            altFormat: "dd MM yy",
+            dateFormat: "dd-mm-yy",
             onSelect: (dateText) => {
                 this.change.emit(dateText);
             }

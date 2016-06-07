@@ -37,7 +37,7 @@ export class AppointmentFormContactComponent implements OnInit {
         this.times = this._appointmentService.getTimes();
     }
 
-    checkDates(e){
-        console.log("Please, catch the change event ): "+e);
+    chooseDate(e){
+        this.appointment.date = e;
     }
 }
