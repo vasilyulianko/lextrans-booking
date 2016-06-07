@@ -9,10 +9,9 @@
         </select>
     </div>
     <label>Where would you like to attend a notary?</label>
-    <label>Select date:</label>
     <div class="form-group">
         <label for="time">Select date:</label>
-        DATE
+        <input type="text" datepicker (change)="checkDates($event)">
     </div>
     <div class="form-group">
         <label for="time">Select time:</label>

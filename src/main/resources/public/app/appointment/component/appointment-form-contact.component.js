@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var appointment_service_1 = require("../service/appointment.service");
+var datepicker_directive_1 = require("../../shared/directive/datepicker.directive");
 var AppointmentFormContactComponent = (function () {
     function AppointmentFormContactComponent(_appointmentService) {
         this._appointmentService = _appointmentService;
@@ -24,10 +25,14 @@ var AppointmentFormContactComponent = (function () {
             .subscribe(function (cities) { return _this.cities = cities; }, function (error) { return _this.errorMessage = error; });
         this.times = this._appointmentService.getTimes();
     };
+    AppointmentFormContactComponent.prototype.checkDates = function (e) {
+        console.log("Please, catch the change event ): " + e);
+    };
     AppointmentFormContactComponent = __decorate([
         core_1.Component({
             selector: 'appointment-form-contact',
-            templateUrl: 'app/appointment/component/appointment-form-contact.component.html'
+            templateUrl: 'app/appointment/component/appointment-form-contact.component.html',
+            directives: [datepicker_directive_1.DatepickerDirective]
         }), 
         __metadata('design:paramtypes', [appointment_service_1.AppointmentService])
     ], AppointmentFormContactComponent);
