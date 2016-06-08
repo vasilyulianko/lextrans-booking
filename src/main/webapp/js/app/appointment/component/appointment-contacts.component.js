@@ -4,7 +4,11 @@ define(["jquery", "handlebars", "app/appointment/service/appointment.service"], 
         var source = $("#appointment-contacts-template").html();
         var template = Handlebars.compile(source);
 
-        var context = {city: "Hello world!", body: "Content generated using Handlebars.js template."};
+        var cities = appointmentService.loadCities();
+
+        var context = {cities: cities};
+        console.log(context);
+
         var html = template(context);
         $("#appointment-contacts").html(html);
 

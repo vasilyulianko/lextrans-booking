@@ -1,14 +1,10 @@
 define(["jquery"], function($) {
 
 
-    var privateVar = [{id:1, name: "London"}];
-
-    function privateFunction() {
-        return privateVar;
-    }
-
-    function getCities() {
-        return privateVar;
+    var cities = [{id:1, name: "London"}, {id:2, name: "Dublin"}];
+    
+    function loadCities() {
+        return cities;
     }
 
     function getName() {
@@ -16,7 +12,7 @@ define(["jquery"], function($) {
     }
     return {
         getName: getName,
-        getCities: getCities
+        loadCities: loadCities
     };
     
     

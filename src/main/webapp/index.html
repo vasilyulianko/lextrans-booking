@@ -68,8 +68,10 @@
 
     <div class="form-group">
         <label for="city">Select City:</label>
-        <select class="form-control" name="city" [(ngModel)]="appointment.cityId">
-            <option *ngFor='let city of cities' [value]="city.id">{{city}}</option>
+        <select class="form-control" name="city">
+            {{#each cities}}
+                <option value="{{id}}">{{name}}</option>
+            {{/each}}
         </select>
     </div>
     <label>When would you like to attend a notary?</label>
@@ -93,7 +95,7 @@
         <label class="control-label">Name and Surname:</label>
         <input type="text" class="form-control" [(ngModel)]="appointment.name" ngControl="name" #name="ngForm" required
                placeholder="Name and Surname">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <div class="alert alert-danger" hidden>
             Name is required
         </div>
     </div>
