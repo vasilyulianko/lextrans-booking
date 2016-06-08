@@ -6,24 +6,16 @@ buildscript {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven {
-			url "https://plugins.gradle.org/m2/"
-		}
+
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath "com.moowork.gradle:gradle-node-plugin:0.12"
-
 	}
 
 }
-/*plugins {
-    id 'com.craigburke.bower-installer' version '2.5.1'
-}*/
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
-apply plugin: 'com.moowork.node'
 
 jar {
 	baseName = 'lextrans-booking'
@@ -31,7 +23,6 @@ jar {
 }
 
 bootRun {
-	dependsOn npmInstall
     environment = ['JDBC_DATABASE_URL' : 'jdbc:postgresql://localhost:5432/lextrans?user=devdb&password=devdb']
     jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"]
 }
@@ -42,17 +33,11 @@ targetCompatibility = 1.8
 repositories {
 	mavenLocal()
 	mavenCentral()
-	maven {
-		url "https://plugins.gradle.org/m2/"
-	}
-}
-node {
-	// Set the work directory where node_modules should be located
-	nodeModulesDir = file("${project.projectDir}/src/main/resources/public")
+
 }
 
+
 task stage {
-    dependsOn npmInstall
     dependsOn build
 }
 

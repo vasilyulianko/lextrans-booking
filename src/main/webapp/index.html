@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <title>Lextrans</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="assets/styles/style.css"/>
+
+    <!-- 1. Load libraries -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+            integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <script data-main="app/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+
+</head>
+
+
+<!-- 3. Display the application -->
+<body>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+        <div id="form-container">
+
+            <div class="page-header">
+                <h2>Book an appointment</h2>
+
+                <div class="process-panel">
+                    <h3>Appointment booking process</h3>
+                    <nav>
+                        <ol>
+                            <li class="first-child active"><span>Contacts</span></li>
+                            <li><span>Details</span></li>
+                            <li><span>Review</span></li>
+                            <li><span>Payment</span></li>
+                            <li class="last-child"><span>Confirmation</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- our nested state views will be injected here -->
+
+            <div id="booking-contacts">
+
+                <label>Where would you like to attend a notary?</label>
+
+                <div class="form-group">
+                    <label for="city">Select City:</label>
+                    <select class="form-control" name="city" [(ngModel)]="appointment.cityId">
+                        <option *ngFor='let city of cities' [value]="city.id">{{city.name}}</option>
+                    </select>
+                </div>
+                <label>When would you like to attend a notary?</label>
+                <div class="form-group">
+                    <label for="time">Select date:</label>
+                    <input type="text" datepicker (change)="chooseDate($event)">
+                </div>
+                <div class="form-group">
+                    <label for="time">Select time:</label>
+                    <select class="form-control" name="time" [(ngModel)]="appointment.timeId">
+                        <option *ngFor='let time of times' [value]="time.id">{{time.displayValue}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preferences">If specified term is not available, what are your alternative preferences?</label>
+                    <textarea class="form-control" rows="2" name="preferences" [(ngModel)]="appointment.preferences"></textarea>
+                </div>
+                <label>Your contact details:</label>
+
+                <div class="form-group" [class.has-error]="!name.valid && !name.pristine">
+                    <label class="control-label">Name and Surname:</label>
+                    <input type="text" class="form-control" [(ngModel)]="appointment.name" ngControl="name" #name="ngForm" required
+                           placeholder="Name and Surname">
+                    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                        Name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="addressLine1">Address in UK:</label>
+                    <input type="text" class="form-control" name="addressLine1" [(ngModel)]="appointment.addressLine1">
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode">Postcode:</label>
+                    <input type="text" class="form-control" name="postcode" [(ngModel)]="appointment.postcode">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" [(ngModel)]="appointment.mobile">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="appointment.email">
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <a (click)="proceed()" class="btn btn-block btn-info btn-primary">
+                            Save & Continue <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div id="booking-details" hidden></div>
+            <div id="booking-review" hidden></div>
+            <div id="booking-payment" hidden></div>
+            <div id="booking-confirmation" hidden></div>
+        </div>
+
+        <!-- show our formData as it is being typed -->
+    <pre>
+        {{ diagnostic }}
+    </pre>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
