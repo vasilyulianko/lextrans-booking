@@ -50,7 +50,7 @@ node {
 	nodeModulesDir = file("${project.projectDir}/src/main/resources/public")
 }
 
-processResources.dependsOn(npmInstall)
+processResources.dependsOn(npmInstall, npm_run_tsc)
 
 task stage {
     dependsOn build
