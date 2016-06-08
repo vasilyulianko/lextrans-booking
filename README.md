@@ -17,6 +17,10 @@
 
 ## Deployment to heroku
 
+### First time:
+`heroku buildpacks:add heroku/nodejs`
+`heroku buildpacks:add heroku/gradle`
+
 `git push heroku master`
 
 or
