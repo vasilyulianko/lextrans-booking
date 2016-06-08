@@ -71,15 +71,7 @@ public class LextransApplication extends SpringBootServletInitializer {
 		};
 	}*/
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurerAdapter() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/control/**").allowedOrigins("http://localhost:3000");
-			}
-		};
-	}
+
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

@@ -7,7 +7,6 @@ import {City} from "../model/city";
 
 @Injectable()
 export class AppointmentService {
-    private _urlPrefix = "http://localhost:5000/";
 
     private _citiesUrl = "control/appointment/cities";
 
@@ -18,7 +17,7 @@ export class AppointmentService {
     }
 
     getCities():Observable<City[]> {
-        return this._http.get(this._urlPrefix + this._citiesUrl)
+        return this._http.get(this._citiesUrl)
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .map((response:Response) => <City[]> response.json())
             .catch((response: Response) => this.handleError(response));

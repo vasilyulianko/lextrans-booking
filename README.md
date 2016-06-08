@@ -2,13 +2,14 @@
 
 
 ## Development
-### Backend start
+
+### Start all
 
 `./gradlew bootRun`
 
 ### Frontend start
 
-`cd web`
+`cd src/main/resources/public`
 
 `npm install`
 

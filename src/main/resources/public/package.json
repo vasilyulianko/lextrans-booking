@@ -2,8 +2,8 @@
   "name": "lextrans-booking",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run bs\" ",
+    "bs": "browser-sync start --proxy \"localhost:5000\"",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",

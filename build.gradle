@@ -6,10 +6,15 @@ buildscript {
 	repositories {
 		mavenLocal()
 		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+		classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+
+	}
 
 }
 /*plugins {
@@ -18,6 +23,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'com.moowork.node'
 
 jar {
 	baseName = 'lextrans-booking'
@@ -25,6 +31,7 @@ jar {
 }
 
 bootRun {
+	dependsOn npmInstall
     environment = ['JDBC_DATABASE_URL' : 'jdbc:postgresql://localhost:5432/lextrans?user=devdb&password=devdb']
     jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"]
 }
@@ -35,10 +42,17 @@ targetCompatibility = 1.8
 repositories {
 	mavenLocal()
 	mavenCentral()
+	maven {
+		url "https://plugins.gradle.org/m2/"
+	}
+}
+node {
+	// Set the work directory where node_modules should be located
+	nodeModulesDir = file("${project.projectDir}/src/main/resources/public")
 }
 
 task stage {
-    //dependsOn bowerInstall
+    dependsOn npmInstall
     dependsOn build
 }
 
@@ -50,9 +64,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-devtools')
 	compile('org.projectlombok:lombok:1.16.6')
 	compile('org.springframework.boot:spring-boot-starter-mail')
-/*
-	compile('org.springframework.boot:spring-boot-starter-security')
-*/
 /*
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 */
@@ -73,40 +84,4 @@ dependencies {
 	testRuntime('org.hsqldb:hsqldb')
 }
 
-/*
 
-//Frontend application
-bower {
-    installBase = 'src/main/resources/public/assets/bower'
-    'angular'('1.5.2')
-
-    'bootstrap'('3.3.6') {
-        source 'dist/css*/
-/*.min.css' >> 'styles/'
-        source 'dist/fonts*/
-/**' >> 'fonts/'
-
-        excludes 'jquery' // <5>
-    }
-*/
-/*
-    'angular'('1.5.2') {
-        source 'angular.js'
-    }
-
-    'ui-router'('0.2.x') // <4>
-
-    'bootstrap'('3.3.6') {
-        source 'dist/css*//*
-*/
-/*.min.css' >> 'styles/'
-        source 'dist/fonts*//*
-*/
-/**' >> 'fonts/'
-
-        excludes 'jquery'
-    }
-
-    'animate.css'('https://github.com/daneden/animate.css.git') // <6>*//*
-
-}*/

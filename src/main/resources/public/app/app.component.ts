@@ -11,5 +11,7 @@ import {AppointmentFormComponent} from "./appointment/component/appointment-form
     providers: [HTTP_PROVIDERS]
 })
 export class AppComponent {
+
+    
     
 }
