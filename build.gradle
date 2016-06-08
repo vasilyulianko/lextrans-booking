@@ -31,7 +31,6 @@ jar {
 }
 
 bootRun {
-	dependsOn npmInstall
     environment = ['JDBC_DATABASE_URL' : 'jdbc:postgresql://localhost:5432/lextrans?user=devdb&password=devdb']
     jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"]
 }
@@ -51,8 +50,9 @@ node {
 	nodeModulesDir = file("${project.projectDir}/src/main/resources/public")
 }
 
+processResources.dependsOn(npmInstall)
+
 task stage {
-    dependsOn npmInstall
     dependsOn build
 }
 
