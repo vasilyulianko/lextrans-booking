@@ -1,3 +1,5 @@
+import com.moowork.gradle.node.NodeExtension
+import com.moowork.gradle.node.variant.VariantBuilder
 
 buildscript {
 	ext {
@@ -13,6 +15,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+		classpath "de.richsource.gradle.plugins:typescript-gradle-plugin:1.8.0"
 
 	}
 
@@ -24,6 +27,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'com.moowork.node'
+apply plugin: 'de.richsource.gradle.plugins.typescript'
 
 jar {
 	baseName = 'lextrans-booking'
@@ -50,7 +54,16 @@ node {
 	nodeModulesDir = file("${project.projectDir}/src/main/resources/public")
 }
 
-processResources.dependsOn(npmInstall, npm_run_tsc)
+String nodeExecutable() {
+	NodeExtension nodeExt = NodeExtension.get(project)
+	return new VariantBuilder(nodeExt).build().nodeExec
+}
+
+compileTypeScript {
+	compilerExecutable "${nodeExecutable()} ${project.projectDir}/src/main/resources/public/node_modules/typescript/lib/tsc.js"
+}
+
+processResources.dependsOn(npmInstall, compileTypeScript)
 
 task stage {
     dependsOn build
