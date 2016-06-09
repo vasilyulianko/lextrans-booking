@@ -13,12 +13,25 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
     }
 
     function createAppointment() {
+        var cityId = $("#city").val();
+        var contactFullName = $("#contactFullName").val();
+        var timePreference = $("#timePreference").val();
+        var contactAddressLine1 = $("#contactAddressLine1").val();
+        var contactPostCode = $("#contactPostCode").val();
+        var contactMobile = $("#contactMobile").val();
+        var contactEmail = $("#contactEmail").val();
+
         var appointment = {
-            city: {id:1},
-            contactFullName: "Vasily Ulianko"
+            city: {id: cityId},
+            timePreference: timePreference,
+            contactFullName: contactFullName,
+            contactAddressLine1: contactAddressLine1,
+            contactPostCode: contactPostCode,
+            contactMobile: contactMobile,
+            contactEmail: contactEmail
         };
 
-        appointmentService.createAppointment(function(){
+        appointmentService.createAppointment(function () {
             alert("Appointment created");
         }, appointment);
     }
