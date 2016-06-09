@@ -21,6 +21,9 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
         appointmentService.loadCities(loadCities, logError);
         appointmentService.loadTimes(loadTimes, logError);
 
+
+        appointmentService.createAppointment(function(){}, logError);
+
         $("#datepicker").datepicker();
 
     }

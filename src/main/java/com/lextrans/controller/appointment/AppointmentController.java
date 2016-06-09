@@ -11,11 +11,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by vasilyulianko on 26/05/2016.
@@ -44,11 +43,10 @@ public class AppointmentController {
         return appointment;
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
-    public String findAll() {
-        return StreamSupport.stream(appointmentRepository.findAll().spliterator(), false).map(Appointment::toString).collect(Collectors.toList()).toString();
-
+    public Iterable<Appointment> findAll() {
+        return appointmentRepository.findAll();
     }
 
     @RequestMapping(value = "/cities", method = RequestMethod.GET)

@@ -1,7 +1,8 @@
-define(["jquery"], function ($) {
+define(["jquery", "app/util/rest.util"], function ($, rest) {
 
     var CITIES_URI = "control/appointment/cities";
     var TIMES_URI = "control/appointment/times";
+    var CREATE_APPOINTMENT_URI = "control/appointment/";
 
     function loadCities(success, failure) {
         var jqxhr = $.get(CITIES_URI)
@@ -15,6 +16,24 @@ define(["jquery"], function ($) {
             .done(success)
             .fail(failure);
         return jqxhr;
+    }
+
+
+    function createAppointment(success, failure) {
+
+        var appointment = {
+            city: {id:1},
+            contactFullName: "Vasily Ulianko"
+        };
+
+
+/*
+        var jqxhr = $.post(CREATE_APPOINTMENT_URI, appointment, success,'json')
+            .fail(failure);
+        return jqxhr;*/
+
+        rest.postJSON(CREATE_APPOINTMENT_URI, appointment, success);
+
     }
 /*
     function loadContactsStepData(success) {
@@ -37,8 +56,8 @@ define(["jquery"], function ($) {
 
     return {
         loadCities: loadCities,
-        loadTimes: loadTimes
-
+        loadTimes: loadTimes,
+        createAppointment: createAppointment
     };
 
 
