@@ -5,17 +5,11 @@ define(["jquery", "app/util/rest.util"], function ($, rest) {
     var CREATE_APPOINTMENT_URI = "control/appointment/";
 
     function loadCities(success, failure) {
-        var jqxhr = $.get(CITIES_URI)
-            .done(success)
-            .fail(failure);
-        return jqxhr;
+        rest.get(CITIES_URI, success);
     }
 
     function loadTimes(success, failure) {
-        var jqxhr = $.get(TIMES_URI)
-            .done(success)
-            .fail(failure);
-        return jqxhr;
+        rest.get(TIMES_URI, success);
     }
 
 
@@ -25,12 +19,6 @@ define(["jquery", "app/util/rest.util"], function ($, rest) {
             city: {id:1},
             contactFullName: "Vasily Ulianko"
         };
-
-
-/*
-        var jqxhr = $.post(CREATE_APPOINTMENT_URI, appointment, success,'json')
-            .fail(failure);
-        return jqxhr;*/
 
         rest.postJSON(CREATE_APPOINTMENT_URI, appointment, success);
 

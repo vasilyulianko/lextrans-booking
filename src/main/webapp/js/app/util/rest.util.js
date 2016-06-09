@@ -1,5 +1,19 @@
 define(["jquery"], function ($) {
 
+    function get(url, callback) {
+        return $.ajax({
+            'type': 'GET',
+            'url': url,
+            'contentType': 'application/json',
+            'dataType': 'json',
+            'success': callback,
+            'error': function (response) {
+                console.error("ERROR " + JSON.stringify(response));
+
+            }
+        });
+    }
+    
     function postJSON(url, data, callback) {
         return $.ajax({
             'type': 'POST',
@@ -16,7 +30,8 @@ define(["jquery"], function ($) {
     }
     
     return {
-        postJSON: postJSON
+        postJSON: postJSON,
+        get: get
     }
 
 });

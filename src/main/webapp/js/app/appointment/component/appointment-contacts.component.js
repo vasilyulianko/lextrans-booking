@@ -1,10 +1,5 @@
 define(["jquery", "app/util/template.util", "app/appointment/service/appointment.service", "jquery-ui"], function ($, templateUtil, appointmentService) {
-    
-    function logError(e) {
-        console.error(e);
-    }
 
-    
     function loadCities(data) {
         var context = {cities: data};
         templateUtil.mergeTemplate('city-template', 'city-template-placeholder', context);
@@ -18,11 +13,11 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
     }
 
     function init() {
-        appointmentService.loadCities(loadCities, logError);
-        appointmentService.loadTimes(loadTimes, logError);
+        appointmentService.loadCities(loadCities);
+        appointmentService.loadTimes(loadTimes);
 
 
-        appointmentService.createAppointment(function(){}, logError);
+        appointmentService.createAppointment(function(){});
 
         $("#datepicker").datepicker();
 
