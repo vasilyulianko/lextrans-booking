@@ -370,9 +370,13 @@ hr {
     border-left: 5px solid #a94442; !* red *!
 }*/
 
-
 .appointment-form .form-group {
-    border-bottom: 1px solid #eee;
+/*    border-bottom: 1px solid #eee;
     padding-bottom: 20px;
+    margin: 10px 0 20px;*/
+}
+
+.appointment-form .elements-group {
+    border-bottom: 1px solid #eee;
     margin: 10px 0 20px;
 }
