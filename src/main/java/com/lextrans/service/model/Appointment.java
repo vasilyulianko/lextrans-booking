@@ -2,6 +2,7 @@ package com.lextrans.service.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,6 +32,9 @@ public class Appointment implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private AppointmentCity city;
 
+/*
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+*/
     private LocalDateTime dateTime;
 
     private String timePreference;

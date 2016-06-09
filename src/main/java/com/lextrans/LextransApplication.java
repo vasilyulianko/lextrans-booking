@@ -1,5 +1,6 @@
 package com.lextrans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -75,6 +76,8 @@ public class LextransApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.findAndRegisterModules();
 		return application.sources(LextransApplication.class);
 	}
 

@@ -57,6 +57,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-tomcat')
 	compile('org.springframework.boot:spring-boot-starter-security')
 
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1')
 /*
 	compile("org.lightadmin:lightadmin:1.2.0.RC1")
 */
