@@ -56,17 +56,19 @@
             <!-- our nested state views will be injected here -->
 
             <div id="appointment-contacts">
-                <label>Where would you like to attend a notary?</label>
+                <fieldset>
+                    <label>Where would you like to attend a notary?</label>
 
-                <div class="form-group elements-group">
-                    <div id="city-template-placeholder">
-                        <select class="form-control" id="city" name="city">
-                            <option value="" disabled selected>Select city</option>
-                        </select>
+                    <div class="form-group">
+                        <div id="city-template-placeholder">
+                            <select class="form-control" id="city" name="city">
+                                <option value="" disabled selected>Select city</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <label>When would you like to attend?</label>
-                <div class="elements-group">
+                </fieldset>
+                <fieldset>
+                    <label>When would you like to attend?</label>
                     <div class="form-group">
                         <input type="text" class="form-control" id="datepicker" name="date" placeholder="Select date">
                     </div>
@@ -77,14 +79,16 @@
                             </select>
                         </div>
                     </div>
-                </div>
-                <label for="preferences">If specified term is not available, what are your alternative
-                    preferences?</label>
-                <div class="form-group elements-group">
-                    <textarea class="form-control" rows="2" id="preferences" name="preferences"></textarea>
-                </div>
-                <label>Your contact details:</label>
-                <div class="elements-group">
+                </fieldset>
+                <fieldset>
+                    <label for="preferences">If specified term is not available, what are your alternative
+                        preferences?</label>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="2" id="preferences" name="preferences"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label>Your contact details:</label>
                     <div class="form-group" [class.has-error]="!name.valid && !name.pristine">
                         <input type="text" class="form-control" required
                                placeholder="Name and Surname">
@@ -107,7 +111,7 @@
                     <div class="form-group">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
-                </div>
+                </fieldset>
                 <div class="form-group row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <a (click)="proceed()" class="btn btn-block btn-info btn-primary">
