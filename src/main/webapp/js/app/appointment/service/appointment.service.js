@@ -13,12 +13,7 @@ define(["jquery", "app/util/rest.util"], function ($, rest) {
     }
 
 
-    function createAppointment(success, failure) {
-
-        var appointment = {
-            city: {id:1},
-            contactFullName: "Vasily Ulianko"
-        };
+    function createAppointment(success, appointment) {
 
         rest.postJSON(CREATE_APPOINTMENT_URI, appointment, success);
 

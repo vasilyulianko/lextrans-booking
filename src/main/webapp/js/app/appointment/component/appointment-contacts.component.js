@@ -12,15 +12,25 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
         templateUtil.mergeTemplate('time-template', 'time-template-placeholder', context);
     }
 
+    function createAppointment() {
+        var appointment = {
+            city: {id:1},
+            contactFullName: "Vasily Ulianko"
+        };
+
+        appointmentService.createAppointment(function(){
+            alert("Appointment created");
+        }, appointment);
+    }
+
+
     function init() {
         appointmentService.loadCities(loadCities);
         appointmentService.loadTimes(loadTimes);
 
-
-        appointmentService.createAppointment(function(){});
-
         $("#datepicker").datepicker();
 
+        $("#continueButton").click(createAppointment);
     }
 
     return {
