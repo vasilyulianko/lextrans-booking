@@ -1,22 +1,49 @@
 define(["jquery", "app/util/template.util", "app/appointment/service/appointment.service", "jquery-ui"], function ($, templateUtil, appointmentService) {
-    
-    function logError(e) {
-        console.error(e);
+
+    function loadCities(data) {
+        var context = {cities: data};
+        templateUtil.mergeTemplate('city-template', 'city-template-placeholder', context);
     }
 
-    
-    function loadTemplates(data) {
-        templateUtil.mergeTemplate('city-template', 'city-template-placeholder', data);
-        templateUtil.mergeTemplate('time-template', 'time-template-placeholder', data);
 
-        $("#datepicker").datepicker();
+    function loadTimes(data) {
+        var context = {times: data};
+
+        templateUtil.mergeTemplate('time-template', 'time-template-placeholder', context);
     }
+
+    function createAppointment() {
+        var cityId = $("#city").val();
+        var contactFullName = $("#contactFullName").val();
+        var timePreference = $("#timePreference").val();
+        var contactAddressLine1 = $("#contactAddressLine1").val();
+        var contactPostCode = $("#contactPostCode").val();
+        var contactMobile = $("#contactMobile").val();
+        var contactEmail = $("#contactEmail").val();
+
+        var appointment = {
+            city: {id: cityId},
+            timePreference: timePreference,
+            contactFullName: contactFullName,
+            contactAddressLine1: contactAddressLine1,
+            contactPostCode: contactPostCode,
+            contactMobile: contactMobile,
+            contactEmail: contactEmail
+        };
+
+        appointmentService.createAppointment(function () {
+            alert("Appointment created");
+        }, appointment);
+    }
+
 
     function init() {
-        appointmentService.loadContactsStepData(
-            loadTemplates,
-            logError
-        );
+        appointmentService.loadCities(loadCities);
+        appointmentService.loadTimes(loadTimes);
+
+        $("#datepicker").datepicker();
+
+        $("#continueButton").click(createAppointment);
     }
 
     return {

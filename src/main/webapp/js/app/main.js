@@ -1,6 +1,8 @@
 define([
+    "jquery",
     "app/appointment/component/appointment-contacts.component"
-], function (appointmentContacts) {
+], function ($, appointmentContacts) {
     appointmentContacts.init();
+
 
 });

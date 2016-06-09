@@ -360,23 +360,11 @@ hr {
 }
 
 
-/* Forms */
-
-/*.ng-valid[required] {
-    border-left: 5px solid #42A948; !* green *!
-}
-
-.ng-invalid.ng-dirty {
-    border-left: 5px solid #a94442; !* red *!
-}*/
-
-.appointment-form .form-group {
-/*    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin: 10px 0 20px;*/
-}
-
-.appointment-form .elements-group {
+.appointment-form fieldset {
     border-bottom: 1px solid #eee;
-    margin: 10px 0 20px;
+    margin: 10px 0 10px 0;
+}
+
+.appointment-form fieldset label {
+    margin: 0 0 10px 0;
 }

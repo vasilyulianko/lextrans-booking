@@ -44,19 +44,14 @@ public class Appointment implements Serializable {
 
     private Boolean hasMortgage;
 
-    @NotBlank
     private String contactFullName;
 
-    @NotBlank
     private String contactAddressLine1;
 
-    @NotBlank
     private String contactPostCode;
 
-    @NotBlank
     private String contactMobile;
 
-    @NotBlank
     private String contactEmail;
 
     @OneToMany(mappedBy = "appointment")
