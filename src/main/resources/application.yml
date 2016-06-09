@@ -27,6 +27,8 @@ spring:
         cache: false
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+          ddl-auto: update
     datasource:
       url: ${JDBC_DATABASE_URL}
       driver-class-name: org.postgresql.Driver

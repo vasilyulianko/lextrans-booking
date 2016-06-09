@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/cupertino/jquery-ui.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -68,7 +68,7 @@
 
     <div class="form-group">
         <label for="city">Select City:</label>
-        <select class="form-control" name="city">
+        <select class="form-control" id="city" name="city">
             {{#each cities}}
                 <option value="{{id}}">{{name}}</option>
             {{/each}}
@@ -76,13 +76,15 @@
     </div>
     <label>When would you like to attend a notary?</label>
     <div class="form-group">
-        <label for="time">Select date:</label>
-        <input type="text" datepicker (change)="chooseDate($event)">
+        <label for="datepicker">Select date:</label>
+        <input type="text" id="datepicker" name="date">
     </div>
     <div class="form-group">
         <label for="time">Select time:</label>
-        <select class="form-control" name="time" [(ngModel)]="appointment.timeId">
-            <option *ngFor='let time of times' [value]="time.id">{{time.displayValue}}</option>
+        <select class="form-control" id="time" name="time">
+            {{#each times}}
+                <option value="{{id}}">{{displayValue}}</option>
+            {{/each}}
         </select>
     </div>
     <div class="form-group">

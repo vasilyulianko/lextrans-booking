@@ -1,21 +1,21 @@
-define(["jquery", "handlebars", "app/appointment/service/appointment.service"], function ($, Handlebars, appointmentService) {
+define(["jquery", "app/util/template.util", "app/appointment/service/appointment.service", "jquery-ui"], function ($, templateUtil, appointmentService) {
+    
+    function logError(e) {
+        console.error(e);
+    }
 
-    function render() {
-        var source = $("#appointment-contacts-template").html();
-        var template = Handlebars.compile(source);
+    
+    function loadTemplate(data) {
+        templateUtil.mergeTemplate('appointment-contacts-template', 'appointment-contacts', data);
 
-        var cities = appointmentService.loadCities();
-
-        var context = {cities: cities};
-        console.log(context);
-
-        var html = template(context);
-        $("#appointment-contacts").html(html);
-
+        $("#datepicker").datepicker();
     }
 
     function init() {
-        render();
+        appointmentService.loadContactsStepData(
+            loadTemplate,
+            logError
+        );
     }
 
     return {
