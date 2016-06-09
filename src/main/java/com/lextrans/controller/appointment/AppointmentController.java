@@ -3,8 +3,10 @@ package com.lextrans.controller.appointment;
 import com.lextrans.service.appointment.AppointmentService;
 import com.lextrans.service.appointment.dao.AppointmentCityRepository;
 import com.lextrans.service.appointment.dao.AppointmentRepository;
+import com.lextrans.service.appointment.dao.AppointmentTimeRepository;
 import com.lextrans.service.model.Appointment;
 import com.lextrans.service.model.AppointmentCity;
+import com.lextrans.service.model.AppointmentTime;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import java.util.stream.StreamSupport;
  * Created by vasilyulianko on 26/05/2016.
  */
 @Controller
-@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RequestMapping("/control/appointment")
 public class AppointmentController {
     private Log log = LogFactory.getLog(AppointmentController.class);
@@ -31,6 +32,9 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentCityRepository appointmentCityRepository;
+
+    @Autowired
+    private AppointmentTimeRepository appointmentTimeRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
@@ -51,5 +55,11 @@ public class AppointmentController {
     @ResponseBody
     public Iterable<AppointmentCity> findCities() {
         return appointmentCityRepository.findAll();
+    }
+
+    @RequestMapping(value = "/times", method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<AppointmentTime> findTimes() {
+        return appointmentTimeRepository.findAll();
     }
 }
