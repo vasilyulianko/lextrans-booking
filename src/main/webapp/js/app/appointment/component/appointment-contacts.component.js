@@ -46,7 +46,8 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
             minDate: new Date(),    // prevent selection of date older than today
             //showOn: 'button',       // Show a button next to the text-field
             autoSize: true,         // automatically resize the input field
-            altFormat: 'yy-mm-dd',  // Date Format used
+            dateFormat: 'dd-mm-yy',
+            altFormat: 'dd-mm-yy',  // Date Format used
             //beforeShowDay: $.datepicker.noWeekends,     // Disable selection of weekends
             firstDay: 1 // Start with Monday
         });
