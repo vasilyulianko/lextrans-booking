@@ -41,7 +41,15 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
         appointmentService.loadCities(loadCities);
         appointmentService.loadTimes(loadTimes);
 
-        $("#datepicker").datepicker();
+        $("#datepicker").datepicker({
+            constrainInput: true,   // prevent letters in the input field
+            minDate: new Date(),    // prevent selection of date older than today
+            //showOn: 'button',       // Show a button next to the text-field
+            autoSize: true,         // automatically resize the input field
+            altFormat: 'yy-mm-dd',  // Date Format used
+            //beforeShowDay: $.datepicker.noWeekends,     // Disable selection of weekends
+            firstDay: 1 // Start with Monday
+        });
 
         $("#continueButton").click(createAppointment);
     }
