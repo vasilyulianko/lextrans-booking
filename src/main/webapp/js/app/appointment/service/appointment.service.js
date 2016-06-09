@@ -32,12 +32,7 @@ define(["jquery"], function ($) {
         
     }
 
-    function getName() {
-        return "vas";
-    }
-
     return {
-        getName: getName,
         loadContactsStepData: loadContactsStepData
     };
 

@@ -5,15 +5,16 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
     }
 
     
-    function loadTemplate(data) {
-        templateUtil.mergeTemplate('appointment-contacts-template', 'appointment-contacts', data);
+    function loadTemplates(data) {
+        templateUtil.mergeTemplate('city-template', 'city-template-placeholder', data);
+        templateUtil.mergeTemplate('time-template', 'time-template-placeholder', data);
 
         $("#datepicker").datepicker();
     }
 
     function init() {
         appointmentService.loadContactsStepData(
-            loadTemplate,
+            loadTemplates,
             logError
         );
     }
