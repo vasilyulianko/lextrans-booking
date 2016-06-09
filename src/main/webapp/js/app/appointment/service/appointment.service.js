@@ -1,19 +1,22 @@
 define(["jquery"], function ($) {
 
-    var _CITIES_URI = "control/appointment/cities";
+    var CITIES_URI = "control/appointment/cities";
+    var TIMES_URI = "control/appointment/times";
 
-    var cities = [{id: 1, name: "London"}, {id: 2, name: "Dublin"}];
-    
-    function loadCities() {
-        var jqxhr = $.get(_CITIES_URI);
+    function loadCities(success, failure) {
+        var jqxhr = $.get(CITIES_URI)
+            .done(success)
+            .fail(failure);
         return jqxhr;
     }
 
-    function loadTimes() {
-        return [{id: "11:13", displayValue: "11:13"},
-            {id: "11:30", displayValue: "11:30"}]
+    function loadTimes(success, failure) {
+        var jqxhr = $.get(TIMES_URI)
+            .done(success)
+            .fail(failure);
+        return jqxhr;
     }
-
+/*
     function loadContactsStepData(success) {
 
         $.when(loadCities(), loadTimes()).done(function (citiesResult, timesResult) {
@@ -23,17 +26,19 @@ define(["jquery"], function ($) {
 
             var result = {
                 cities: citiesResult[0],
-                times: timesResult
+                times: timesResult[0]
             };
             
             success(result);
 
         });
         
-    }
+    }*/
 
     return {
-        loadContactsStepData: loadContactsStepData
+        loadCities: loadCities,
+        loadTimes: loadTimes
+
     };
 
 

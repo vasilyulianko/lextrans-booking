@@ -74,8 +74,8 @@
                     </div>
                     <div class="form-group">
                         <div id="time-template-placeholder">
-                            <option value="" disabled selected>Select time</option>
                             <select class="form-control" id="time" name="time">
+                                <option value="" disabled selected>Select time</option>
                             </select>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
     <select class="form-control" id="city" name="city">
         <option value="" disabled selected>Select city</option>
         {{#each cities}}
-        <option value="{{id}}">{{name}}</option>
+            <option value="{{id}}">{{name}}</option>
         {{/each}}
     </select>
 
@@ -144,7 +144,7 @@
     <select class="form-control" id="time" name="time">
         <option value="" disabled selected>Select time</option>
         {{#each times}}
-        <option value="{{id}}">{{displayValue}}</option>
+            <option value="{{id}}">{{time}}</option>
         {{/each}}
     </select>
 

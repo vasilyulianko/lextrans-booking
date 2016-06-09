@@ -5,18 +5,24 @@ define(["jquery", "app/util/template.util", "app/appointment/service/appointment
     }
 
     
-    function loadTemplates(data) {
-        templateUtil.mergeTemplate('city-template', 'city-template-placeholder', data);
-        templateUtil.mergeTemplate('time-template', 'time-template-placeholder', data);
+    function loadCities(data) {
+        var context = {cities: data};
+        templateUtil.mergeTemplate('city-template', 'city-template-placeholder', context);
+    }
 
-        $("#datepicker").datepicker();
+
+    function loadTimes(data) {
+        var context = {times: data};
+
+        templateUtil.mergeTemplate('time-template', 'time-template-placeholder', context);
     }
 
     function init() {
-        appointmentService.loadContactsStepData(
-            loadTemplates,
-            logError
-        );
+        appointmentService.loadCities(loadCities, logError);
+        appointmentService.loadTimes(loadTimes, logError);
+
+        $("#datepicker").datepicker();
+
     }
 
     return {
