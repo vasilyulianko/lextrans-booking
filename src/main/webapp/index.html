@@ -1,3 +1,5 @@
+<!doctype html>
+
 <html>
 
 <head>
@@ -41,11 +43,11 @@
                     <h3>Appointment booking process</h3>
                     <nav>
                         <ol>
-                            <li class="first-child active"><span>Contacts</span></li>
-                            <li><span>Details</span></li>
-                            <li><span>Review</span></li>
-                            <li><span>Payment</span></li>
-                            <li class="last-child"><span>Confirmation</span></li>
+                            <li class="first-child active">Contacts</li>
+                            <li>Details</li>
+                            <li>Review</li>
+                            <li>Payment</li>
+                            <li class="last-child">Confirm</li>
                         </ol>
                     </nav>
                 </div>
@@ -75,7 +77,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="preferences">If specified term is not available, what are your alternative preferences?</label>
+                    <label for="preferences">If specified term is not available, what are your alternative
+                        preferences?</label>
                     <textarea class="form-control" rows="2" id="preferences" name="preferences"></textarea>
                 </div>
                 <label>Your contact details:</label>
@@ -125,7 +128,7 @@
     <select class="form-control" id="city" name="city">
         <option value="" disabled selected>Select city</option>
         {{#each cities}}
-            <option value="{{id}}">{{name}}</option>
+        <option value="{{id}}">{{name}}</option>
         {{/each}}
     </select>
 

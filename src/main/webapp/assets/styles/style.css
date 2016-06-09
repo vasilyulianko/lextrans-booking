@@ -7,7 +7,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, form, label, legend, table, caption,
 tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, menu, nav, output, ruby, section, ol, ul, li,
-summary, time, mark, audio, video {margin: 0;
+summary, time, mark, audio, video {
+    margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
@@ -242,11 +243,6 @@ hr {
     display: none
 }
 
-.process-panel li > span {
-    display: inline-block;
-    max-width: none
-}
-
 .process-panel li.active {
     font-weight: bold;
 }
@@ -254,18 +250,23 @@ hr {
     background-color: #e5f2f8;
 }
 
-@media (min-width: 1200px) {
-    .process-panel {
-        margin-left: 0;
-        margin-right: 0
+
+@media only screen and (max-width: 780px){
+/*    .process-panel {
+        display: none;
+    }*/
+    .process-panel li:before, .process-panel  li:after {
+
+        display: none;
+    }
+
+    .process-panel li {
+        width: 10%;
+        display: list-item;
+        text-align: left;
+        padding: 0;
     }
 }
-
-
-
-
-
-
 
 
 
